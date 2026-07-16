@@ -3,8 +3,8 @@
 ================================================== */
 @media screen and (max-width: 1024px) {
     .sidebar {
-        width: 90px;
-        padding: 30px 10px;
+        width: 80px;
+        padding: 20px 10px;
     }
 
     .logo h2 {
@@ -13,26 +13,31 @@
 
     .logo {
         justify-content: center;
+        margin-bottom: 30px;
     }
 
     .logo i {
-        font-size: 32px;
+        font-size: 28px;
     }
 
     .sidebar li {
         text-align: center;
-        font-size: 0 !important; /* Menyembunyikan teks menu */
+        font-size: 0 !important; /* Menyembunyikan teks menu, sisa ikon */
         padding: 15px 0;
+        justify-content: center;
     }
 
     .sidebar li i {
         font-size: 22px;
         margin: 0;
-        width: 100%;
+    }
+
+    .menu-logout {
+        margin-top: 50px;
     }
 
     .main {
-        margin-left: 90px;
+        margin-left: 80px;
         padding: 25px;
     }
 
@@ -41,7 +46,7 @@
     }
 
     header h1 {
-        font-size: 28px;
+        font-size: 24px;
     }
 }
 
@@ -53,18 +58,21 @@
         flex-direction: column;
     }
 
+    /* Mengubah Sidebar menjadi Menu Navigasi Bawah ala App */
     .sidebar {
         width: 100%;
-        height: 70px;
+        height: 65px;
         position: fixed;
         bottom: 0;
-        top: auto; /* Membatalkan height 100% desktop */
+        top: auto; 
         left: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 0;
         z-index: 1000;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        background: #0F4C81; /* Warna primary */
     }
 
     .logo {
@@ -76,23 +84,39 @@
         justify-content: space-around;
         width: 100%;
         padding: 0;
+        margin: 0;
     }
 
     .sidebar li {
         flex: 1;
         margin: 0;
         border-radius: 0;
-        padding: 20px 0;
+        padding: 12px 0;
         text-align: center;
+        flex-direction: column;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .sidebar li.active {
+        color: white;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
     }
 
     .sidebar li i {
-        font-size: 22px;
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+
+    /* Khusus tombol logout di Mobile */
+    .menu-logout {
+        margin-top: 0 !important;
+        color: #ff8a8a !important;
     }
 
     .main {
         margin-left: 0;
-        margin-bottom: 80px; /* Jarak agar konten tidak tertutup nav bawah */
+        margin-bottom: 75px; /* Memberi ruang agar tidak tertutup nav bawah */
         padding: 20px;
     }
 
@@ -103,29 +127,44 @@
     }
 
     header h1 {
-        font-size: 24px;
+        font-size: 22px;
+        line-height: 1.3;
     }
 
+    .flex-between {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Cards memanjang (1 Kolom) */
     .cards {
         grid-template-columns: 1fr;
     }
 
-    .progress-card,
-    .chart-card,
-    .history-card {
+    .card-modern {
         padding: 20px;
     }
 
-    table {
+    /* Penyesuaian Tabel agar bisa di-scroll kesamping (Swipe) */
+    .table-responsive {
         font-size: 13px;
         display: block;
         overflow-x: auto;
         white-space: nowrap;
+        border: none;
     }
 
-    table th,
-    table td {
-        padding: 10px;
+    .table-modern th,
+    .table-modern td {
+        padding: 12px;
+    }
+
+    /* Penyesuaian Modal Form agar pas di HP */
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
     }
 }
 
@@ -146,36 +185,35 @@
     }
 
     .status-online {
-        font-size: 13px;
-        padding: 8px 15px;
+        font-size: 12px;
+        padding: 6px 15px;
+        align-self: flex-start;
     }
 
-    .card {
-        padding: 18px;
-    }
-
-    .card i {
-        font-size: 28px;
+    .card h3 {
+        font-size: 14px;
     }
 
     .card h2 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
-    .progress {
-        height: 24px;
-    }
-
-    .progress-card p {
-        font-size: 15px;
+    #progressText {
+        font-size: 24px !important;
     }
 
     .chart-card canvas {
-        max-height: 250px;
+        height: 250px !important;
     }
 
-    #notificationBox {
-        font-size: 14px;
+    .btn {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    
+    #searchInput {
+        width: 100% !important;
     }
 }
 
@@ -187,7 +225,8 @@
         grid-template-columns: repeat(3, 1fr);
     }
     .main {
-        max-width: 1600px;
+        max-width: 1400px;
+        margin: 0 auto;
         margin-left: 250px;
     }
 }

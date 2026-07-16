@@ -2,7 +2,8 @@
 // SMART TRASH API - CLIENT
 // ======================================================
 
-const BASE_URL = "http://localhost:3000/api/trash"; // Pastikan backend menyala di port 3000
+// Ganti bagian https://smart-trash-api-iot.onrender.com dengan URL Render milik Anda
+const BASE_URL = "https://smart-trash-api-iot.onrender.com/api/trash";
 
 // Fungsi pembantu untuk fetch
 async function request(url, options = {}) {

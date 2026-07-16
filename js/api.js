@@ -2,8 +2,8 @@
 // SMART TRASH API - CLIENT
 // ======================================================
 
-// Ganti bagian https://smart-trash-api-iot.onrender.com dengan URL Render milik Anda
-const BASE_URL = "https://smart-trash-api-d7zn.onrender.com/api/trash";
+// Ganti link yang lama menjadi seperti ini:
+const BASE_URL = "https://don-aged-meanwhile-buying.trycloudflare.com/api/trash";
 
 // Fungsi pembantu untuk fetch
 async function request(url, options = {}) {

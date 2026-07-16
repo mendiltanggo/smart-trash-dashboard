@@ -1,79 +1,127 @@
 /* ===========================
-   GLOBAL
+   ROOT VARIABLES (WARNA & TEMA)
 =========================== */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:#f4f7fb;
-    display:flex;
-    min-height:100vh;
-    color:#333;
+:root {
+    --primary: #0F4C81;
+    --success: #00C897;
+    --danger: #e53935;
+    --warning: #ff9800;
+    --bg-light: #f4f7fb;
+    --text-dark: #333;
+    --text-muted: #666;
+    --border-color: #e0e6ed;
 }
 
 /* ===========================
-   SIDEBAR
+   GLOBAL & RESET
 =========================== */
-.sidebar{
-    width:250px;
-    background:#0F4C81;
-    color:white;
-    position:fixed;
-    height:100%;
-    padding:30px 20px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    display: flex;
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+h1, h2, h3 {
+    color: var(--primary);
+    margin: 0;
+}
+
+/* ===========================
+   UTILITY CLASSES (KODE BANTU)
+=========================== */
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.text-muted {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* ===========================
+   SIDEBAR NAVIGASI
+=========================== */
+.sidebar {
+    width: 250px;
+    background: var(--primary);
+    color: white;
+    position: fixed;
+    height: 100%;
+    padding: 30px 20px;
     z-index: 1000;
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:50px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 50px;
 }
 
-.logo i{
-    font-size:35px;
+.logo i { font-size: 35px; }
+.logo h2 { font-size: 22px; }
+
+.sidebar ul { list-style: none; }
+
+.sidebar li {
+    padding: 15px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
-.logo h2{
-    font-size:22px;
+.sidebar li i {
+    width: 25px;
 }
 
-.sidebar ul{
-    list-style:none;
+.sidebar li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
 }
 
-.sidebar li{
-    padding:15px;
-    margin-bottom:10px;
-    border-radius:10px;
-    cursor:pointer;
-    transition:.3s;
+.sidebar li.active {
+    background: var(--success);
+    transform: none; /* Reset efek hover */
 }
 
-.sidebar li i{
-    width:25px;
+.menu-logout {
+    color: #ff5252;
+    margin-top: 30px;
 }
 
-.sidebar li:hover{
-    background:rgba(255,255,255,.2);
-}
-
-.sidebar li.active{
-    background:#00C897;
+.menu-logout:hover {
+    background: rgba(255, 82, 82, 0.1);
 }
 
 /* ===========================
-   MAIN & PAGES
+   MAIN KONTEN & ANIMASI
 =========================== */
-.main{
-    margin-left:250px;
-    width:100%;
-    padding:30px;
+.main {
+    margin-left: 250px;
+    width: 100%;
+    padding: 30px;
     transition: margin-left .3s ease;
 }
 
@@ -87,270 +135,304 @@ body{
     to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
 /* ===========================
    HEADER
 =========================== */
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:30px;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
-header h1{
-    font-size:32px;
+header h1 { font-size: 32px; }
+
+.status-online {
+    background: var(--success);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
 }
 
-header p{
-    color:#777;
-}
-
-.status-online{
-    background:#00C897;
-    color:white;
-    padding:10px 18px;
-    border-radius:50px;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-weight:bold;
-}
-
-.dot{
-    width:10px;
-    height:10px;
-    background:white;
-    border-radius:50%;
+.dot {
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255,255,255,0.5);
 }
 
 /* ===========================
-   CARD
+   KARTU (CARDS)
 =========================== */
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 }
 
-.card{
-    background:white;
-    border-radius:18px;
-    padding:25px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-    transition:.3s;
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    transition: .3s;
 }
 
-.card:hover{
-    transform:translateY(-5px);
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.card i{
-    font-size:32px;
-    color:#0F4C81;
-    margin-bottom:15px;
+.card i {
+    font-size: 32px;
+    color: var(--primary);
+    margin-bottom: 15px;
 }
 
-.card h3{
-    color:#666;
-    margin-bottom:10px;
+.card h3 {
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
-.card h2{
-    color:#0F4C81;
+.card h2 {
+    color: var(--primary);
+    font-size: 28px;
+}
+
+/* Modifikasi Kartu Tampilan Modern */
+.card-modern {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.02);
 }
 
 /* ===========================
-   PROGRESS
+   TAMPILAN VOLUME & DEVICE
 =========================== */
-.progress-section{
-    margin-top:30px;
+.progress-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.progress-card{
-    background:white;
-    padding:25px;
-    border-radius:18px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+.progress {
+    width: 100%;
+    height: 30px;
+    background: var(--bg-light);
+    border-radius: 30px;
+    overflow: hidden;
+    margin: 20px 0;
+    border: 1px solid var(--border-color);
 }
 
-.progress{
-    width:100%;
-    height:30px;
-    background:#ddd;
-    border-radius:30px;
-    overflow:hidden;
-    margin:20px 0;
+.progress-value {
+    width: 0%;
+    height: 100%;
+    background: var(--success);
+    transition: width 0.5s ease;
 }
 
-.progress-value{
-    width:0%;
-    height:100%;
-    background:linear-gradient(90deg,#00C897,#0F4C81);
-    transition:.5s;
+.device-card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.progress-card p{
-    font-size:18px;
-    font-weight:bold;
-    color:#0F4C81;
+.device-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.device-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 /* ===========================
-   CHART
+   GRAFIK (CHART)
 =========================== */
-.chart-section{
-    margin-top:30px;
+.chart-section {
+    margin-top: 30px;
 }
 
-.chart-card{
-    background:white;
-    padding:25px;
-    border-radius:18px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
-
-.chart-card canvas{
-    margin-top:20px;
+.chart-card canvas {
+    margin-top: 20px;
 }
 
 /* ===========================
-   TABLE
+   FORM, INPUT & TOMBOL
 =========================== */
-.history{
-    margin-top:30px;
+.input-modern {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: 0.3s;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.history-card{
-    background:white;
-    padding:25px;
-    border-radius:18px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+.input-modern:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
+.form-group { margin-bottom: 18px; }
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-dark);
 }
 
-table th{
-    background:#0F4C81;
-    color:white;
-    padding:12px;
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
-table td{
-    padding:12px;
-    border-bottom:1px solid #ddd;
-    text-align:center;
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: #0a3863; transform: translateY(-2px); }
+
+.btn-success { background: var(--success); color: white; }
+.btn-success:hover { background: #00a87d; transform: translateY(-2px); }
+
+.btn-secondary { background: #eee; color: var(--text-dark); }
+.btn-secondary:hover { background: #ddd; }
+
+/* ===========================
+   TABEL MODERN
+=========================== */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: white;
 }
 
-table tr:hover{
-    background:#f2f2f2;
+.table-modern {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table-modern th {
+    background: var(--bg-light);
+    padding: 15px;
+    font-weight: 600;
+    color: var(--primary);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.table-modern td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    transition: 0.2s;
+    text-align: left;
+}
+
+.table-modern tbody tr:hover td {
+    background-color: #f8faff;
 }
 
 /* ===========================
-   NOTIFICATION
+   MODAL (POP-UP FORM)
 =========================== */
-.notification{
-    margin-top:30px;
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 76, 129, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
 }
 
-#notificationBox{
-    background:white;
-    padding:20px;
-    border-left:6px solid #00C897;
-    border-radius:12px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-    font-weight:500;
+.modal-content {
+    width: 420px;
+    max-width: 90%;
+    animation: slideUp 0.3s ease;
 }
 
 /* ===========================
-   STATUS WARNA TEXT
+   TEKS STATUS & NOTIFIKASI
 =========================== */
-.success{
-    color:#00C897;
-    font-weight:bold;
-}
+.text-online { color: var(--success); font-weight: bold; }
+.text-offline { color: var(--danger); font-weight: bold; }
+.success { color: var(--success); font-weight: bold; }
+.warning { color: var(--warning); font-weight: bold; }
+.danger { color: var(--danger); font-weight: bold; }
 
-.warning{
-    color:#ff9800;
-    font-weight:bold;
-}
-
-.danger{
-    color:#e53935;
-    font-weight:bold;
+#notificationBox {
+    background: white;
+    padding: 20px;
+    border-left: 6px solid var(--success);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    font-weight: 500;
 }
 
 /* ==========================
-   TOAST NOTIFICATION
+   TOAST NOTIFICATION (SUDUT KANAN ATAS)
 ========================== */
-#toast-container{
+#toast-container {
     position: fixed;
-    top:20px;
-    right:20px;
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-    z-index:9999;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
 }
 
-.toast{
-    min-width:280px;
-    max-width:320px;
-    padding:15px 18px;
-    border-radius:12px;
-    color:white;
-    transform:translateX(120%);
-    transition:.35s;
-    box-shadow:0 8px 20px rgba(0,0,0,.25);
+.toast {
+    min-width: 280px;
+    max-width: 320px;
+    padding: 15px 18px;
+    border-radius: 12px;
+    color: white;
+    transform: translateX(120%);
+    transition: .35s;
+    box-shadow: 0 8px 20px rgba(0,0,0,.25);
 }
 
-.toast.show{
-    transform:translateX(0);
-}
+.toast.show { transform: translateX(0); }
+.toast-title { font-size: 16px; font-weight: bold; margin-bottom: 6px; }
+.toast-message { font-size: 14px; }
 
-.toast-title{
-    font-size:16px;
-    font-weight:bold;
-    margin-bottom:6px;
-}
-
-.toast-message{
-    font-size:14px;
-}
-.device-card{
-
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-
-}
-
-.device-item{
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:10px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-.text-online {
-    color: #00C897;
-    font-weight: bold;
-}
-
-.text-offline {
-    color: #e53935;
-    font-weight: bold;
-}
-
-.toast.success{ background:#2ecc71; }
-.toast.warning{ background:#f39c12; }
-.toast.danger{ background:#e74c3c; }
-.toast.info{ background:#3498db; }
+.toast.success { background: #2ecc71; }
+.toast.warning { background: #f39c12; }
+.toast.danger { background: #e74c3c; }
+.toast.info { background: #3498db; }

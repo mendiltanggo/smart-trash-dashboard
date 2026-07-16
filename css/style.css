@@ -1,0 +1,356 @@
+/* ===========================
+   GLOBAL
+=========================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    display:flex;
+    min-height:100vh;
+    color:#333;
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+.sidebar{
+    width:250px;
+    background:#0F4C81;
+    color:white;
+    position:fixed;
+    height:100%;
+    padding:30px 20px;
+    z-index: 1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:50px;
+}
+
+.logo i{
+    font-size:35px;
+}
+
+.logo h2{
+    font-size:22px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sidebar li i{
+    width:25px;
+}
+
+.sidebar li:hover{
+    background:rgba(255,255,255,.2);
+}
+
+.sidebar li.active{
+    background:#00C897;
+}
+
+/* ===========================
+   MAIN & PAGES
+=========================== */
+.main{
+    margin-left:250px;
+    width:100%;
+    padding:30px;
+    transition: margin-left .3s ease;
+}
+
+.page-content {
+    width: 100%;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===========================
+   HEADER
+=========================== */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+header h1{
+    font-size:32px;
+}
+
+header p{
+    color:#777;
+}
+
+.status-online{
+    background:#00C897;
+    color:white;
+    padding:10px 18px;
+    border-radius:50px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:bold;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    background:white;
+    border-radius:50%;
+}
+
+/* ===========================
+   CARD
+=========================== */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card i{
+    font-size:32px;
+    color:#0F4C81;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:#666;
+    margin-bottom:10px;
+}
+
+.card h2{
+    color:#0F4C81;
+}
+
+/* ===========================
+   PROGRESS
+=========================== */
+.progress-section{
+    margin-top:30px;
+}
+
+.progress-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.progress{
+    width:100%;
+    height:30px;
+    background:#ddd;
+    border-radius:30px;
+    overflow:hidden;
+    margin:20px 0;
+}
+
+.progress-value{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#00C897,#0F4C81);
+    transition:.5s;
+}
+
+.progress-card p{
+    font-size:18px;
+    font-weight:bold;
+    color:#0F4C81;
+}
+
+/* ===========================
+   CHART
+=========================== */
+.chart-section{
+    margin-top:30px;
+}
+
+.chart-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.chart-card canvas{
+    margin-top:20px;
+}
+
+/* ===========================
+   TABLE
+=========================== */
+.history{
+    margin-top:30px;
+}
+
+.history-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table th{
+    background:#0F4C81;
+    color:white;
+    padding:12px;
+}
+
+table td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+}
+
+table tr:hover{
+    background:#f2f2f2;
+}
+
+/* ===========================
+   NOTIFICATION
+=========================== */
+.notification{
+    margin-top:30px;
+}
+
+#notificationBox{
+    background:white;
+    padding:20px;
+    border-left:6px solid #00C897;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    font-weight:500;
+}
+
+/* ===========================
+   STATUS WARNA TEXT
+=========================== */
+.success{
+    color:#00C897;
+    font-weight:bold;
+}
+
+.warning{
+    color:#ff9800;
+    font-weight:bold;
+}
+
+.danger{
+    color:#e53935;
+    font-weight:bold;
+}
+
+/* ==========================
+   TOAST NOTIFICATION
+========================== */
+#toast-container{
+    position: fixed;
+    top:20px;
+    right:20px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    z-index:9999;
+}
+
+.toast{
+    min-width:280px;
+    max-width:320px;
+    padding:15px 18px;
+    border-radius:12px;
+    color:white;
+    transform:translateX(120%);
+    transition:.35s;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.toast.show{
+    transform:translateX(0);
+}
+
+.toast-title{
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.toast-message{
+    font-size:14px;
+}
+.device-card{
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+
+}
+
+.device-item{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:10px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.text-online {
+    color: #00C897;
+    font-weight: bold;
+}
+
+.text-offline {
+    color: #e53935;
+    font-weight: bold;
+}
+
+.toast.success{ background:#2ecc71; }
+.toast.warning{ background:#f39c12; }
+.toast.danger{ background:#e74c3c; }
+.toast.info{ background:#3498db; }

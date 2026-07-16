@@ -3,7 +3,7 @@
 // ======================================================
 
 // Ganti bagian https://smart-trash-api-iot.onrender.com dengan URL Render milik Anda
-const BASE_URL = "https://smart-trash-api-iot.onrender.com/api/trash";
+const BASE_URL = "https://smart-trash-api-d7zn.onrender.com/api/trash";
 
 // Fungsi pembantu untuk fetch
 async function request(url, options = {}) {

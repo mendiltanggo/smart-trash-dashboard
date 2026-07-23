@@ -3,7 +3,7 @@
 // ======================================================
 
 // Ganti link yang lama menjadi seperti ini:
-const BASE_URL = "https://don-aged-meanwhile-buying.trycloudflare.com/api/trash";
+const BASE_URL = "https://terms-captured-vbulletin-qty.trycloudflare.com";
 
 // Fungsi pembantu untuk fetch
 async function request(url, options = {}) {
